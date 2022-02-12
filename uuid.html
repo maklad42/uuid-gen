@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UUID Generator</title>
+  <link rel="stylesheet" href="./styles/uuid.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="inputs">
+      <form id="inputform">
+        <input type="number" name="howmany" min="1" max="500" step="1" value="1">
+      </form>
+      <button type="button" onClick="getIds()">Generate (Ajax)</button>
+    </div>
+    <div class="copy">Copy</div>
+    <div id="results"></div>
+  </div>
+  <script>
+    function getIds() {
+      const url = "http://dev.sandbox.io/uuid/generate.php";
+
+      fetch(url, {
+        method: "POST",
+        body: new FormData(document.getElementById("inputform")),
+      }).then(
+        response => response.text() // .json(), etc.
+      ).then(
+        html => {
+          document.getElementById("results").innerHTML = html;
+        }
+      );
+    }
+  </script>
+
+</body>
+
+</html>

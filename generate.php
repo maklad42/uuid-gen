@@ -1,7 +1,9 @@
 <?php
+
+$x = $_POST["howmany"];
+
 function generate()
 {
-
   // Obtain a random string of 32 hex characters.
   $hex = bin2hex(random_bytes(16));
 
@@ -43,25 +45,13 @@ function generate()
   return $uuid;
 }
 
-for ($i = 0; $i < 10; $i++) {
-  echo generate() . "<br />";
+
+function get_ids($x)
+{
+  for ($i = 0; $i < $x; $i++) {
+    $uuid = generate();
+    echo $uuid . "<br />";
+  }
 }
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UUID Generator</title>
-</head>
-
-<body>
-  <div class="inputs">
-
-  </div>
-</body>
-
-</html>
+return get_ids($x);
