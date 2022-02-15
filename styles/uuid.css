@@ -1,9 +1,9 @@
 :root {
   font-size: 10px;
-  --bkg-body: rgb(83, 90, 119);
-  --bkg-white: #ede8ee;
-  --bkg-results: rgb(250, 243, 243);
-  --shadow-gray: #ffebeb;
+  --bkg-body: rgb(90, 195, 236);
+  --bkg-white: #f3f9fd;
+  --bkg-results: rgb(255, 255, 255);
+  --shadow-gray: #39586a;
 }
 
 * {
@@ -36,14 +36,33 @@ body {
   line-height: 2.5rem;
   font-size: 1.7rem;
   padding: 2px 7px;
+  width: 80%;
+  margin: auto;
   margin-bottom: 1rem;
+  display: block;
+}
+
+button {
+  padding: 7px;
+  margin: auto;
+  display: block;
+}
+
+.copy img {
+  width: 25px;
+  height: 25px;
+  float: right;
+  margin-bottom: 5px;
 }
 
 #results {
   background-color: var(--bkg-results);
   padding: 10px;
   position: relative;
-  margin-top: 3rem;
-  max-height: calc(100vh - 160px);
+  /* margin-top: 3rem; */
+  height: calc(100vh - 160px);
   overflow: auto;
+  font-family: monospace;
+  font-size: 1.7rem;
+  clear: both;
 }
