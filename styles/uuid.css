@@ -4,6 +4,10 @@
   --bkg-white: #f3f9fd;
   --bkg-results: rgb(255, 255, 255);
   --shadow-gray: #39586a;
+  --shadow-light-gray: #39586a70;
+  --highlight: #3369ae;
+  --btn-green: #d4f0d4;
+  --btn-red: red;
 }
 
 * {
@@ -42,10 +46,19 @@ body {
   display: block;
 }
 
+span.copyres {
+  text-align: right;
+  width: calc(100% - 30px);
+  display: inline-block;
+  font-size: 1.5rem;
+  color: var(--highlight);
+}
+
 button {
   padding: 7px;
   margin: auto;
   display: block;
+  background-color: var(--btn-green);
 }
 
 .copy img {
@@ -55,11 +68,34 @@ button {
   margin-bottom: 5px;
 }
 
-#results {
+.clearBtn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: red;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  font-size: 2rem;
+  transition: all 0.5s;
+}
+
+.clearBtn.hidden {
+  display: none;
+}
+
+.clearBtn:hover {
+  font-size: 2.5rem;
+  cursor: pointer;
+  text-shadow: 0.1rem 0.1rem 0 var(--shadow-light-gray);
+  transition: all 0.5s;
+}
+
+#results-wrapper {
   background-color: var(--bkg-results);
   padding: 10px;
   position: relative;
-  /* margin-top: 3rem; */
   height: calc(100vh - 160px);
   overflow: auto;
   font-family: monospace;

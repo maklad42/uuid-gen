@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UUID Generator</title>
   <link rel="stylesheet" href="./styles/uuid.css" />
+  <script defer src="./scripts/uuid.js"></script>
 </head>
 
 <body>
@@ -17,28 +18,16 @@
       </form>
       <button type="button" onClick="getIds()">Generate (Ajax)</button>
     </div>
-    <div class="copy">
+    <div id="cpyBtn" class="copy">
+      <span class="copyres"></span>
       <img src="./images/copy.png" width="512" height="512">
     </div>
-    <div id="results"></div>
+    <div id="results-wrapper">
+      <div id="results">Results...</div>
+      <div class="clearBtn hidden">X</div>
+    </div>
   </div>
-  <script>
-    function getIds() {
-      const url = "http://dev.sandbox.io/uuid/generate.php";
-
-      fetch(url, {
-        method: "POST",
-        body: new FormData(document.getElementById("inputform")),
-      }).then(
-        response => response.text() // .json(), etc.
-      ).then(
-        html => {
-          document.getElementById("results").innerHTML = html;
-        }
-      );
-    }
-  </script>
-
+  <textarea id="txt" hidden></textarea>
 </body>
 
 </html>
