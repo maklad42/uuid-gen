@@ -19,6 +19,7 @@ function getIds() {
       document.getElementById('txt').value = html.replace(/<br \/>/g, '\n');
       document.querySelector('.clearBtn').classList.remove('hidden');
       document.getElementById('cpyBtn').classList.add('active');
+      document.querySelector('.copyres').innerHTML = '';
     });
 }
 
